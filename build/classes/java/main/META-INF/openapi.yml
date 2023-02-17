@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: Programacion Distribuida
+  description: API REST para crear, modificar, eliminar y listar libros.
+  version: 1.0.0
+
+paths:
+
+  /books/{id}:
+
+    get:
+      summary: Retorna un Libro Especifico de la Base de Datos
+      responses:
+        '204':
+          description: OK
+
+    put:
+      summary: Modifica un Libro Especifico de la Base de Datos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                author:
+                  type: string
+                isbn:
+                  type: string
+                title:
+                  type: string
+                price:
+                  type: number
+      responses:
+        '204':
+          description: OK
+    delete:
+      summary: Elimina un Libro Especifico de la Base de Datos
+      responses:
+        '204':
+          description: OK
+  /books:
+    get:
+      summary: Retorna Todos los Libros de la Base de Datos
+      responses:
+        '204':
+          description: OK
+
+    post:
+      summary: Crea un Nuevo Libro en la Base de Datos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                author:
+                  type: string
+                isbn:
+                  type: string
+                title:
+                  type: string
+                price:
+                  type: number
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Error
+
+
